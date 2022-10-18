@@ -1,5 +1,5 @@
 import {Component} from "react";
-import * as Users from "react-bootstrap/ElementChildren";
+import * as elements from "react-bootstrap/ElementChildren";
 import axios from "axios";
 
 class ViewUsers extends Component {
