@@ -1,6 +1,5 @@
 import {Component} from "react";
 import axios from "axios";
-import logo from "../GxP-Cloud-logo-Feb22.png";
 
 class AddUsers extends Component {
     state = {
@@ -11,27 +10,29 @@ class AddUsers extends Component {
     addUser = (e) => {
         e.preventDefault();
         const user = {
-            username:e.target.elements.username.value,
-            password:e.target.elements.password.value,
+            username: e.target.elements.username.value,
+            password: e.target.elements.password.value,
 
         }
 
         alert(user.username);
-        // axios.post('http://127.0.0.1:8000/',{headers: {
-        //         "Access-Control-Allow-Origin": "*"
-        //     }})
-        //     .then(response => {
-        //         console.log('Success!!!');
-        //         console.log(response.data);
-        //         alert(response.data);
-        //         //this.setState({user: response.data, loading: false});
-        //         //console.log(this.state.user);
-        //         //document.cookie = 'token=' + this.state.user.token;
-        //         window.location.href = 'http://localhost:3000/';
-        //
-        //     }).catch((e) => {
-        //     console.log(e);
-        // })
+        axios.post('http://127.0.0.1:8000/', {
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        })
+            .then(response => {
+                console.log('Success!!!');
+                console.log(response.data);
+                alert(response.data);
+                this.setState({user: response.data, loading: false});
+                console.log(this.state.user);
+                document.cookie = 'token=' + this.state.user.token;
+                window.location.href = 'http://localhost:3000/';
+
+            }).catch((e) => {
+            console.log(e);
+        })
     };
 
     render() {
