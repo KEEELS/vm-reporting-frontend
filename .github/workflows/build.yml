@@ -19,9 +19,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   test:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [ 18.x ]
@@ -34,4 +32,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+      - run: npm install
       - run: npm test
