@@ -22,9 +22,9 @@ class LoginPage extends Component {
                 console.log(response.data);
                 alert('succest');
                 alert(response.data.name);
-                //this.setState({user: response.data, loading: false});
-                //console.log(this.state.user);
-                //document.cookie = 'token=' + this.state.user.token;
+               this.setState({user: response.data, loading: false});
+               console.log(this.state.user);
+               document.cookie = 'token=' + this.state.user.token;
                 window.location.href = 'http://localhost:3000/';
 
             }).catch((e) => {
@@ -39,7 +39,7 @@ class LoginPage extends Component {
 
                 <div className="login-page">
                     <div className="form">
-                        <img className={"gpx_cloud_Logo"} src={logo}/>
+                        <img className={"gpx_cloud_Logo"} src={logo} alt={"img_logo"}/>
                         <form className="login-form" onSubmit={this.loginUser}>
                             <input type="username" name="username" placeholder="Username" required={true}/>
                             <input type="password" name="password" placeholder="password" required={true}/>
