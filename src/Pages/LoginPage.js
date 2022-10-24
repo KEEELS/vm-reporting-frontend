@@ -11,20 +11,18 @@ class LoginPage extends Component {
     loginUser = (e) => {
         e.preventDefault();
         const user = {
-            username:e.target.elements.username.value,
-            password:e.target.elements.password.value,
+            username: e.target.elements.username.value,
+            password: e.target.elements.password.value,
         }
 
         alert(user.username);
         axios.get('http://127.0.0.1:8000/get')
             .then(response => {
-                console.log('Success!!!');
                 console.log(response.data);
-                alert('succest');
                 alert(response.data.name);
-               this.setState({user: response.data, loading: false});
-               console.log(this.state.user);
-               document.cookie = 'token=' + this.state.user.token;
+                this.setState({user: response.data, loading: false});
+                console.log(this.state.user);
+                document.cookie = 'token=' + this.state.user.token;
                 window.location.href = 'http://localhost:3000/';
 
             }).catch((e) => {

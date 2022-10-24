@@ -7,9 +7,13 @@ import AddUsers from "./Components/AddUsers";
 import NavBar from "./Components/NavBar";
 
 function getCookie() {
-    return true;
+    const cookie ="true";
+    if (cookie === "") {
+        return false;
+    } else {
+        return true;
+    }
 }
-
 
 function App() {
     if (getCookie() === true) {
@@ -19,17 +23,14 @@ function App() {
                     <div className={"col-lg-5"}>
                         <NavBar/>
                     </div>
-
                     <div className={"col-lg-3"}>
                         <BrowserRouter>
                             <Routes>
                                 <Route path="/" element={<Home/>}/>
                                 <Route path="/Users" element={<UserPage/>}/>
                                 <Route path="/Users/AddUser" element={<AddUsers/>}/>
-
                                 <Route path="/Users/AddUser" element={<AddUsers/>}/>
                             </Routes>
-
                         </BrowserRouter>
                     </div>
                 </div>
