@@ -35,11 +35,11 @@ class EditUser extends Component {
             company: e.target.elements.company.value,
         }
 
-        axios.put('http://127.0.0.1:3000/', {user}
+        axios.put('http://localhost:8080/PostUser/', {user}
         ).then(response => {
             console.log(response.data);
             alert(response.data);
-            window.location.href = 'http://localhost:3000/';
+            window.location.href = '/';
 
         }).catch((e) => {
             console.log(e);

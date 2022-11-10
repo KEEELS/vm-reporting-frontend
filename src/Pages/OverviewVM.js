@@ -28,3 +28,4 @@ class OverviewVM extends Component {
         );
     }
 }
+export default OverviewVM;

@@ -46,7 +46,7 @@ class ViewUsers extends Component {
     }
 
     async getUsers() {
-        const res = await axios.get('http://127.0.0.1:8000/get');
+        const res = await axios.get('http://localhost:8080/Users');
         const {data} = await res;
         console.log(res);
         this.setState({Users: data, loading: false});
@@ -56,7 +56,7 @@ class ViewUsers extends Component {
 
     editUser(e) {
         document.cookie = 'token=' + e;
-        window.location.href = 'http://localhost:3000/user/edit';
+       // window.location.href = '/user/edit';
     }
 
     render() {

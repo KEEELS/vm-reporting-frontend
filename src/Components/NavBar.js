@@ -25,11 +25,12 @@ class NavBar extends Component {
                             </div>
                         </li>
                         <li>
-                            <div className="col-lg-3 nav_either">
+                            <div className="col-lg-3 nav_VM">
                                 <a href="/VM">VM List</a>
                             </div>
                         </li>
                         <li className="right">
+                            <br/>
                             <div className="col-lg-3">
                                 <a href="/users">
                                     <img src={profile_icon} className="profile_icon" alt="Profile Icon"/>

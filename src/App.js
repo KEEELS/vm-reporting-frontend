@@ -6,6 +6,7 @@ import LoginPage from "./Pages/LoginPage";
 import AddUsers from "./Components/AddUsers";
 import NavBar from "./Components/NavBar";
 import EditUser from "./Components/EditUser";
+import OverviewVM from "./Pages/OverviewVM";
 
 function getCookie() {
   return true;
@@ -26,6 +27,7 @@ function App() {
                                 <Route path="/Users" element={<UserPage/>}/>
                                 <Route path="/Users/AddUser" element={<AddUsers/>}/>
                                 <Route path="/Users/EditUser" element={<EditUser/>}/>
+                                <Route path="/VM" element={<OverviewVM/>}/>
                             </Routes>
                         </BrowserRouter>
                     </div>
