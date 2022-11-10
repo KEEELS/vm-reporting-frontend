@@ -5,14 +5,10 @@ import Home from "./Pages/Home";
 import LoginPage from "./Pages/LoginPage";
 import AddUsers from "./Components/AddUsers";
 import NavBar from "./Components/NavBar";
+import EditUser from "./Components/EditUser";
 
 function getCookie() {
-    const cookie ="true";
-    if (cookie === "") {
-        return false;
-    } else {
-        return true;
-    }
+  return true;
 }
 
 function App() {
@@ -29,7 +25,7 @@ function App() {
                                 <Route path="/" element={<Home/>}/>
                                 <Route path="/Users" element={<UserPage/>}/>
                                 <Route path="/Users/AddUser" element={<AddUsers/>}/>
-                                <Route path="/Users/AddUser" element={<AddUsers/>}/>
+                                <Route path="/Users/EditUser" element={<EditUser/>}/>
                             </Routes>
                         </BrowserRouter>
                     </div>

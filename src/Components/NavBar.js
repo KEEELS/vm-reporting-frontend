@@ -1,15 +1,44 @@
 import {Component} from "react";
+import profile_icon from "../img_266351.png";
 
 class NavBar extends Component {
+    state = {
+        isOpen: true,
+    }
+
     render() {
         return (
-            <div className="vertical-menu">
-              {/*  <a href="#" className="active">Home</a>
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>*/}
-            </div>
+            <nav className="sticky-lg-top">
+                <div className="nav-center col-lg-8">
+
+
+                    <ul className={this.state.isOpen ? "nav-links nav-header" : "nav-links"}>
+                        <li>
+                            <div className="col-lg-2 nav_home">
+                                <a href="/">Home</a>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div className="col-lg-3 nav_Translations">
+                                <a href="/Users">Users</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="col-lg-3 nav_either">
+                                <a href="/VM">VM List</a>
+                            </div>
+                        </li>
+                        <li className="right">
+                            <div className="col-lg-3">
+                                <a href="/users">
+                                    <img src={profile_icon} className="profile_icon" alt="Profile Icon"/>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         );
     }
 }

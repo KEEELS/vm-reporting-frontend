@@ -11,12 +11,11 @@ class AddUsers extends Component {
         e.preventDefault();
         const user = {
             username: e.target.elements.username.value,
-            password: e.target.elements.password.value,
-
+            password: e.target.elements.password.value
         }
 
         alert(user.username);
-        axios.post('http://127.0.0.1:8000/', {
+        axios.post('http://127.0.0.1:3000/', {
             headers: {
                 "Access-Control-Allow-Origin": "*"
             }
