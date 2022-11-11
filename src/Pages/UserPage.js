@@ -6,7 +6,7 @@ class UserPage extends Component {
         return (
             <div className={"col-lg-3"}>UserPage
                 <div>
-                    <button href="/Users/adduser">Add user</button>
+                    <button href="/adduser">Add user</button>
                 <div>
                     <ViewUsers/>
                 </div>

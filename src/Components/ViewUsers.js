@@ -8,39 +8,11 @@ class ViewUsers extends Component {
     state = {
         Users: [
             {
-                userid: 1,
-                username: 'testUsername',
-                password: 'testPassword',
-                roletype: 'testRolltype',
-                token: 'testToken'
-            },
-            {
-                userid: 2,
-                username: 'testUsername',
-                password: 'testPassword',
-                roletype: 'testRolltype',
-                token: 'testToken'
-            },
-            {
-                userid: 3,
-                username: 'testUsername',
-                password: 'testPassword',
-                roletype: 'testRolltype',
-                token: 'testToken'
-            },
-            {
-                userid: 4,
-                username: 'testUsername',
-                password: 'testPassword',
-                roletype: 'testRolltype',
-                token: 'testToken'
-            },
-            {
-                userid: 5,
-                username: 'testUsername',
-                password: 'testPassword',
-                roletype: 'testRolltype',
-                token: 'testToken'
+                userid: 0,
+                username: '',
+                password: '',
+                roleType: '',
+                token: ''
             }],
         loading: true,
     }
@@ -55,8 +27,11 @@ class ViewUsers extends Component {
     }
 
     editUser(e) {
-        document.cookie = 'token=' + e;
-       // window.location.href = '/user/edit';
+        if (e > -1) {
+            document.cookie = 'token=' + e;
+            return <EditUser userid={e}/>
+            //window.location.href = '/user/edit';
+        }
     }
 
     render() {
@@ -69,7 +44,7 @@ class ViewUsers extends Component {
                             <label><b>Password:</b> {user.password} | </label>
                             <label><b>Role: </b> {user.roletype} | </label>
                             <label><b>Token: </b>{user.token} | </label>
-                            <button onClick={this.editUser(user.userid) } >Edit</button>
+                            <button onClick={this.editUser(user.userid)}>Edit</button>
                             <button onClick={this.deleteUser(user.userid)}>Delete</button>
                         </div>
 

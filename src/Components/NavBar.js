@@ -29,14 +29,14 @@ class NavBar extends Component {
                                 <a href="/VM">VM List</a>
                             </div>
                         </li>
-                        <li className="right">
-                            <br/>
-                            <div className="col-lg-3">
-                                <a href="/users">
-                                    <img src={profile_icon} className="profile_icon" alt="Profile Icon"/>
-                                </a>
-                            </div>
-                        </li>
+                        {/*<li className="right">*/}
+                        {/*    <br/>*/}
+                        {/*    <div className="col-lg-3">*/}
+                        {/*        <a href="/users">*/}
+                        {/*            <img src={profile_icon} className="profile_icon" alt="Profile Icon"/>*/}
+                        {/*        </a>*/}
+                        {/*    </div>*/}
+                        {/*</li>*/}
                     </ul>
                 </div>
             </nav>

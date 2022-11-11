@@ -16,19 +16,19 @@ class LoginPage extends Component {
         }
 
         alert(user.username);
-        axios.get('http://127.0.0.1:8000/get')
-            .then(response => {
-                console.log(response.data);
-                alert(response.data.name);
-                this.setState({user: response.data, loading: false});
-                console.log(this.state.user);
-                document.cookie = 'token=' + this.state.user.token;
-                window.location.href = 'http://localhost:3000/';
-
-            }).catch((e) => {
-
-            console.log(e);
-        })
+        // axios.get('http://127.0.0.1:8000/get')
+        //     .then(response => {
+        //         console.log(response.data);
+        //         alert(response.data.name);
+        //         this.setState({user: response.data, loading: false});
+        //         console.log(this.state.user);
+        //         document.cookie = 'token=' + this.state.user.token;
+        //         window.location.href = 'http://localhost:3000/';
+        //
+        //     }).catch((e) => {
+        //
+        //     console.log(e);
+        // })
     };
 
     render() {
