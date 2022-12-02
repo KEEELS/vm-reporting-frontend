@@ -16,6 +16,16 @@ class LoginPage extends Component {
         }
 
         alert(user.username);
+        //send this.state.user to the backend
+        axios.post('http://localhost:8080/login', user)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                document.cookie = 'token=' + res.data.token;
+                window.location.href = '/home';
+            }   )
+    };
+
         // axios.get('http://127.0.0.1:8000/get')
         //     .then(response => {
         //         console.log(response.data);
@@ -29,7 +39,7 @@ class LoginPage extends Component {
         //
         //     console.log(e);
         // })
-    };
+
 
     render() {
         return (
