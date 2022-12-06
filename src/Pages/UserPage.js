@@ -1,6 +1,5 @@
 import {Component} from "react";
 import axios from "axios";
-import logo from "../GxP-Cloud-logo-Feb22.png";
 import Async from "react-async";
 
 
@@ -36,7 +35,8 @@ class UserPage extends Component {
                 console.log(document.cookie);
                 window.location.href = '/user';
             })
-        this.state.loading = true;
+        
+        this.setState({loading: true});
 
     }
 
@@ -70,7 +70,6 @@ class UserPage extends Component {
                     <h2>Add User</h2>
 
                     <div className="form">
-                        <img className={"gpx_cloud_Logo"}/>
                         <form className="login-form" onSubmit={this.addUser}>
                             <input type="username" name="username" placeholder="Username" required={true}/>
                             <input type="password" name="password" placeholder="Password" required={true}/>
