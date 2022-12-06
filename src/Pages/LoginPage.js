@@ -15,30 +15,17 @@ class LoginPage extends Component {
             password: e.target.elements.password.value,
         }
 
-        alert(user.username);
+        //alert(user.username);
         //send this.state.user to the backend
-        axios.post('http://localhost:8080/login', user)
+        axios.get('http://localhost:8080/user/login?username='+user.username+'&password='+user.password)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
-                document.cookie = 'token=' + res.data.token;
-                window.location.href = '/home';
+                document.cookie = 'token=' + res.data;
+                alert(document.cookie);
+                window.location.href = '/user';
             }   )
     };
-
-        // axios.get('http://127.0.0.1:8000/get')
-        //     .then(response => {
-        //         console.log(response.data);
-        //         alert(response.data.name);
-        //         this.setState({user: response.data, loading: false});
-        //         console.log(this.state.user);
-        //         document.cookie = 'token=' + this.state.user.token;
-        //         window.location.href = 'http://localhost:3000/';
-        //
-        //     }).catch((e) => {
-        //
-        //     console.log(e);
-        // })
 
 
     render() {
