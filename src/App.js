@@ -3,6 +3,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import LoginPage from "./Pages/LoginPage";
 import UserPage from "./Pages/UserPage";
+import NavBar from "./Components/NavBar";
 
 
 function getCookie() {
@@ -21,11 +22,14 @@ function App() {
     if (getCookie() != null) {
         return (
             <div className="App">
-                <BrowserRouter>
-                    <Routes>
-                        <Route path="/user" element={<UserPage/>}/>
-                    </Routes>
-                </BrowserRouter>
+                <NavBar/>
+                <div className="Content">
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={<UserPage/>}/>
+                        </Routes>
+                    </BrowserRouter>
+                </div>
             </div>
         );
     } else {

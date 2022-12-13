@@ -1,16 +1,20 @@
 import {Component} from "react";
 import axios from "axios";
 import Async from "react-async";
+import AddUser from "../Components/AddUser";
+import "../css/UserCSS.css";
+import UserDetails from "../Components/UserDetails";
 
 
 class UserPage extends Component {
 
     state = {
         user: [],
-        loading: true
+        loading: true,
+        selectedUser: null
     };
 
-    loadUser() {
+    loadUsers() {
         if (this.state.loading) {
             axios.get('http://localhost:8080/user/all')
                 .then(res => {
@@ -21,33 +25,24 @@ class UserPage extends Component {
         }
     }
 
-    addUser = (e) => {
-        const user = {
-            username: e.target.elements.username.value,
-            password: e.target.elements.password.value,
-            roleType: e.target.elements.roleType.value
+    loadUsers() {
+        if (this.state.loading) {
+            axios.get('http://localhost:8080/user/all')
+                .then(res => {
+                    //console.log(res);
+                    console.log(res.data);
+                    this.setState({user: res.data, loading: false});
+                })
         }
-        alert(document.cookie);
-        axios.post('http://localhost:8080/user/add?username=' + user.username + '&password=' + user.password + '&roleType=' + user.roleType + '&' + document.cookie)
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-                console.log(document.cookie);
-                window.location.href = '/user';
-            })
-        
-        this.setState({loading: true});
-
     }
-
 
     render() {
         return (
-            <div>
+            <div className={"UserBody"}>
                 <div>
                     <g2>User Overview</g2>
                     <div>
-                        <Async promiseFn={this.loadUser()}>
+                        <Async promiseFn={this.loadUsers()}>
                             {
                                 ({data, err, isLoading}) => {
                                     if (this.state.loading) return "Loading..."
@@ -55,8 +50,21 @@ class UserPage extends Component {
 
                                     if (this.state.user != null) {
                                         return (
-                                            <div>
-                                                {this.state.user.map(user => <li>{user.username}</li>)}
+
+                                            <div className={"userList"}>
+                                                <ul>
+                                                    {
+                                                        this.state.user.map(user =>
+                                                            <div className={"listItem"}>
+                                                                <div className={"listItemLabel"}>
+                                                                    <li><a
+                                                                        onClick={this.state.selectedUser = user.id}>{user.username}</a>
+                                                                    </li>
+                                                                </div>
+                                                            </div>
+                                                        )}
+                                                    <li className={"AddUser"}><a>+</a></li>
+                                                </ul>
                                             </div>
                                         )
                                     }
@@ -67,17 +75,7 @@ class UserPage extends Component {
                     </div>
                 </div>
                 <div>
-                    <h2>Add User</h2>
-
-                    <div className="form">
-                        <form className="login-form" onSubmit={this.addUser}>
-                            <input type="username" name="username" placeholder="Username" required={true}/>
-                            <input type="password" name="password" placeholder="Password" required={true}/>
-                            <input type="text" name="roleType" placeholder="Role type" required={true}/>
-                            <button type="Submit">Add User</button>
-                            <br/>
-                        </form>
-                    </div>
+                    <UserDetails selectedUser={this.state.selectedUser}/>
                 </div>
             </div>
         );

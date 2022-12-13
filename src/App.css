@@ -1,128 +1,28 @@
 .App {
-    text-align: center;
+    text-align: Left;
+    padding: 1.5em;
+    background-image: image("/css/icons/Background_Image.jpg");
+    display:flex;
 }
 
 .App-logo {
     height: 40vmin;
     pointer-events: none;
 }
-.NavBar{
+.NavBar {
     position: sticky;
 
 }
-/*navbar*/
-.navbar {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.1rem 2rem;
-    background: var(--offWhite);
-    z-index: 1;
-    box-shadow: 0px 1px 10px gray;
+.Content{
+    padding-left: 0.5em;
 }
-.nav-header {
-    display: none;
-    justify-content: space-between;
-}
-
-.nav-icon {
-    font-size: 1.5rem;
-    color: var(--primaryColor);
-}
-
-.nav-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none;
-}
-.nav-links {
-    height: 0;
-    overflow: hidden;
-    transition: var(--mainTransition);
-    list-style-type: none;
-    margin-top: 8px;
-    width: 100%;
-}
-.profile_icon{
-
-    width: 50px;
-    height: 50px;
-}
-.logo{
-    width: 50px;
-    height: 50px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-}
-
-
-.nav-links a {
-    display: block;
-    text-decoration: none;
-    padding: 1rem 0;
-    color: var(--mainBlack);
-    transition: var(--mainTransition);
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: var(--mainSpacing);
-    text-align: center;
-}
-
-
-.nav-links a:hover {
-    color: var(--primaryColor);
-}
-@media screen and (min-width: 768px) {
-    .nav-btn {
-        display: none;
-    }
-    .nav-center {
-
-        transition: var(--mainTransition);
-        margin: 0 auto;
-        display: flex;
-        position: relative;
-        height: auto;
-
-    }
-
-    .right {
-        position: absolute;
-        float: right;
-        right: 0%;
-    }
-
-    .nav-links {
-        height: auto;
-        display: flex;
-        margin-left: 4rem;
-    }
-    .nav-links a {
-        margin: 0 1rem;
-        padding: 0.5rem 0;
-    }
-}
-
-/*End of navbar*/
-
-
-/*Begin Home*/
-.overview{
-    background-color: #222222;
-    display: block;
-}
-
-.left{
-    background-color: #1657ea;
-    width: auto;
-}
-/*End Home*/
-
 
 .App-link {
     color: #61dafb;
+}
+
+NavBar{
+    width: 5em;
 }
 
 :root {
@@ -135,12 +35,7 @@
     --mainTransition: all 0.3s linear;
     --mainSpacing: 2px;
 }
-.Userlistitem:hover{
-    background-color: #1657ea;
-    color: #fff;
-    font-size: large;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-}
+
 
 @keyframes App-logo-spin {
     from {

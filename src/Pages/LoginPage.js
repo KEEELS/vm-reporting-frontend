@@ -22,8 +22,8 @@ class LoginPage extends Component {
                 console.log(res);
                 console.log(res.data);
                 document.cookie = 'token=' + res.data;
-                alert(document.cookie);
-                window.location.href = '/user';
+                //alert(document.cookie);
+                window.location.href = '/';
             }   )
     };
 
