@@ -35,7 +35,6 @@ function App() {
     } else {
         return (
             <div className="App">
-
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<LoginPage/>}/>

@@ -17,10 +17,11 @@ class AddUser extends Component {
                 console.log(res);
                 console.log(res.data);
                 //console.log(document.cookie);
+                this.props.loading = true;
+                console.log(this.props.loading);
                 window.location.href = '/';
             })
 
-        this.props.loading = true;
 
     }
 
